@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyPayBox2.iml" filepath="$PROJECT_DIR$/MyPayBox2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NitinSir-13-05-2019.iml" filepath="$PROJECT_DIR$/NitinSir-13-05-2019.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fonePaisaSDK/fonePaisaSDK.iml" filepath="$PROJECT_DIR$/fonePaisaSDK/fonePaisaSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/fonePaisaSDK/fonePaisaSDK.iml" filepath="$PROJECT_DIR$/fonePaisaSDK/fonePaisaSDK.iml" />
     </modules>
   </component>
