@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <common.CustomImageView
+            android:layout_gravity="center"
+            android:id="@+id/icon"
+            android:src="@drawable/offer2"
+            android:layout_margin="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <LinearLayout
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginRight="10dp"
+                android:layout_weight="2.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <common.CustomTextView
+                    android:id="@+id/offername"
+                    android:textSize="18dp"
+                    android:textColor="@color/blue"
+                    android:text="ffffffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <common.CustomTextView
+                    android:id="@+id/offerCode"
+                    android:text="OfferCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <common.CustomTextView
+                    android:id="@+id/startDate"
+                    android:text="Start Date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <common.CustomTextView
+                    android:id="@+id/endDate"
+                    android:text="End Date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <common.CustomTextView
+                    android:id="@+id/min_amount"
+                    android:text="Minimum Order Amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/amount"
+                    android:text="Maximum Offer Amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <common.CustomTextView
+                    android:id="@+id/uses"
+                    android:text="Maxim Use"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/copy"
+                    android:textAllCaps="false"
+                    android:textColor="@color/green_color"
+                    android:text="Use"
+                    android:layout_gravity="center"
+                    android:background="@drawable/white_rounded_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</LinearLayout>

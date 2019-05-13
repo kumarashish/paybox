@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:id="@+id/categoryName"
+            android:paddingLeft="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/blue"
+            android:text="Organic Milk"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/viewAllButton"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp"
+
+            android:text="View All"
+            android:textSize="12dp"
+            android:textColor="@color/green_color"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/greenborderbutton"
+            android:layout_width="80dp"
+            android:layout_height="30dp" />
+    </RelativeLayout>
+
+    <GridView
+        android:layout_margin="10dp"
+        android:id="@+id/items"
+        android:numColumns="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

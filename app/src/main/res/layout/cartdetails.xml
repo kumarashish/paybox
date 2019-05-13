@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back"
+            android:layout_width="30dp"
+            android:layout_height="20dp" />
+        <common.CustomTextView
+            android:id="@+id/heading"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:text="Order Details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Item Name : "
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <common.CustomTextView
+            android:id="@+id/itemName"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Cow Milk"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Quantity : "
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <common.CustomTextView
+            android:id="@+id/itemQuantity"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="500 ml"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Units : "
+            android:gravity="center_vertical"
+            android:layout_width="80dp"
+            android:layout_height="match_parent" />
+       <ImageButton
+           android:id="@+id/minus"
+           android:src="@drawable/delete"
+           android:background="@drawable/circle"
+           android:padding="10dp"
+           android:cropToPadding="true"
+
+           android:layout_gravity="center_vertical"
+           android:layout_width="30dp"
+           android:layout_height="30dp" />
+        <common.CustomTextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/itemCount"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="1"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"/>
+        <ImageButton
+            android:id="@+id/add"
+            android:src="@drawable/add"
+
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/circle"
+            android:padding="10dp"
+            android:cropToPadding="true"
+
+            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+    <LinearLayout
+android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Weeks : "
+            android:gravity="center_vertical"
+            android:layout_width="80dp"
+            android:layout_height="match_parent" />
+        <ImageButton
+            android:id="@+id/minusDays"
+            android:src="@drawable/delete"
+            android:background="@drawable/circle"
+            android:padding="10dp"
+            android:cropToPadding="true"
+
+            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <common.CustomTextView
+            android:id="@+id/daysCount"
+            android:layout_marginLeft="20dp"
+
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="1"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"/>
+        <ImageButton
+            android:id="@+id/daysadd"
+            android:src="@drawable/add"
+
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/circle"
+            android:padding="10dp"
+            android:cropToPadding="true"
+
+            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+    <common.CustomTextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="18dp"
+        android:textColor="@color/blue"
+        android:text="Frequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RadioGroup
+        android:id="@+id/frequency"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/daily"
+            android:textSize="18dp"
+            android:textColor="@color/blue"
+            android:text="Daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/alternate"
+            android:textSize="18dp"
+            android:textColor="@color/blue"
+            android:text="Alternate Days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/custom"
+            android:textSize="18dp"
+            android:textColor="@color/blue"
+            android:text="Custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <HorizontalScrollView
+        android:id="@+id/customview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+
+
+        android:layout_marginTop="10dp"
+android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:weightSum="7"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <Button
+            android:id="@+id/m"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+            android:text="M"
+            android:background="@drawable/grey_border"
+
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+        <Button
+            android:id="@+id/t"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+            android:text="T"
+            android:background="@drawable/grey_border"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/w"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+            android:text="W"
+            android:background="@drawable/grey_border"
+            android:layout_weight="1"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+        <Button
+            android:id="@+id/th"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+            android:text="TH"
+            android:background="@drawable/grey_border"
+            android:layout_weight="1"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+        <Button
+            android:id="@+id/fr"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+            android:text="F"
+            android:background="@drawable/grey_border"
+            android:layout_weight="1"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+        <Button
+            android:id="@+id/s"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+            android:text="S"
+            android:background="@drawable/grey_border"
+            android:layout_weight="1"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+        <Button
+            android:id="@+id/su"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+            android:text="SU"
+            android:background="@drawable/grey_border"
+            android:layout_weight="1"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Total Quantity : "
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <common.CustomTextView
+            android:id="@+id/quantity"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text=""
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Total Amount : "
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <common.CustomTextView
+            android:id="@+id/totalPrice"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text=""
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <common.CustomTextView
+        android:textStyle="bold"
+       android:layout_marginTop="10dp"
+        android:id="@+id/address"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/blue"
+        android:textSize="18dp"
+        android:text="Select Address"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_border_box"/>
+        <Button
+            android:padding="10dp"
+            android:id="@+id/date"
+            android:textColor="@color/white"
+            android:text="Select date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/green_border_box"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp" />
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <common.CustomTextView
+                android:textSize="18dp"
+                android:id="@+id/timmint_tv"
+                android:text="Delivery Timming"
+                android:textColor="@color/blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        <Spinner
+            android:layout_marginLeft="10dp"
+            android:id="@+id/timming"
+android:background="@drawable/grey_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/></LinearLayout>
+        <LinearLayout
+
+android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/promoCodeEditText"
+                android:hint="Promocode"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/grey_border"
+                android:layout_width="150dp"
+                android:layout_height="40dp" />
+                <Button
+                    android:id="@+id/redeem"
+                    android:background="@drawable/green_border_box"
+                    android:text="Redeem"
+                    android:layout_marginLeft="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+            <common.CustomTextView
+
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/blue"
+                android:id="@+id/havePromoCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Check offers" />
+
+            <Button
+
+                android:id="@+id/pay"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textAllCaps="false"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:text="Pay Now Rs 0"
+                android:background="@drawable/blueborderbox"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+            </LinearLayout>
+    </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

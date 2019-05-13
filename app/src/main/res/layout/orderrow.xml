@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <common.CustomImageView
+            android:id="@+id/icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="2.3"
+                android:orientation="vertical">
+
+                <common.CustomTextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ffffffffff"
+                    android:textColor="@color/red"
+                    android:textSize="16dp" />
+
+                <common.CustomTextView
+                    android:id="@+id/measurement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Measurement" />
+
+                <common.CustomTextView
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="quantity" />
+
+                <common.CustomTextView
+                    android:id="@+id/duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="duration" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Price" />
+
+                <common.CustomTextView
+                    android:id="@+id/supplier"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="supplier" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7">
+
+                <Button
+                    android:id="@+id/rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="top"
+                    android:background="@drawable/white_rounded_bg"
+                    android:text="Rate"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black" />
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/cancel_Order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/white_rounded_bg"
+                    android:text="Cancel Order"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</LinearLayout>

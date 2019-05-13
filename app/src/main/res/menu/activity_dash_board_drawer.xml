@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile"
+            android:icon="@null"
+            android:title="My Profile" />
+
+        <item
+            android:id="@+id/orders"
+            android:icon="@null"
+            android:title="My Order" />
+        <item
+            android:id="@+id/offers"
+            android:icon="@null"
+            android:title="My Offer" />
+        <item
+            android:id="@+id/history"
+            android:icon="@null"
+            android:title="Transaction History" />
+        <item
+            android:id="@+id/changePassword"
+            android:icon="@null"
+            android:title="Change Password" />
+        <item
+            android:id="@+id/services"
+            android:icon="@null"
+            android:title="Contact us" />
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@null"
+            android:title="Logout" />
+    </group>
+
+
+
+</menu>

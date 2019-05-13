@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    tools:showIn="@layout/app_bar_vendor_dash_board"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/editImage"
+            android:layout_marginTop="-10dp"
+            android:layout_alignRight="@+id/profileImage"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="-15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit" />
+
+        <common.CustomImageView
+            android:id="@+id/profileImage"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/circular_image" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+       >
+
+
+        <common.CustomTextView
+            android:id="@+id/businessName"
+            android:textSize="21dp"
+            android:textColor="@color/darkblue"
+            android:text="Name"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="5dp">
+
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+
+                <LinearLayout
+
+                    android:id="@+id/mobileView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/username" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/userName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:enabled="false"
+                            android:inputType="textEmailAddress"
+                            android:text="Title"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18dp" />
+
+                        <common.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="UserName"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="10dp" />
+
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#4Dffffff" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+
+                <LinearLayout
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/phone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/mobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:text="1234567890"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18dp" />
+
+                        <common.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="10dp" />
+
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#4Dffffff" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+
+                <LinearLayout
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/email" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/emailId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:enabled="false"
+                            android:inputType="textEmailAddress"
+                            android:text="Asd@123.com"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18dp" />
+
+                        <common.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="email"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="10dp" />
+
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#4Dffffff" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+
+                <LinearLayout
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/address" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:enabled="false"
+                            android:inputType="textEmailAddress"
+                            android:text="Hitech City"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18dp" />
+
+                        <common.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:text="Address"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="10dp" />
+
+                        <View
+                            android:id="@+id/view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#4Dffffff" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+
+                <LinearLayout
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/address" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:enabled="false"
+                            android:inputType="textEmailAddress"
+                            android:text="Hyderabad"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18dp" />
+
+                        <common.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:text="city"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="10dp" />
+
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#4Dffffff" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+
+                <LinearLayout
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/address" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/pin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:maxLength="6"
+                            android:text="209625"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="18dp" />
+
+                        <common.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:text="pincode"
+                            android:textColor="@color/darkgrey"
+                            android:textSize="10dp" />
+
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#4Dffffff" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+            <LinearLayout
+
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/address" />
+                <LinearLayout
+                    android:id="@+id/addressProofView"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:src="@drawable/placeholder"
+                        android:id="@+id/addressProof"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        />
+                    <LinearLayout
+
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <common.CustomTextView
+                            android:textSize="18dp"
+                            android:text="Select Addres Proof"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.5"
+                            android:layout_height="wrap_content" />
+                    <Button
+                        android:textSize="10dp"
+                        android:textColor="@color/white"
+                        android:text="Browse"
+                        android:background="@drawable/green_border_box"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <common.CustomTextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:text="Address Proof"
+                        android:gravity="left"
+                        android:textColor="@color/darkgrey"
+                        android:textSize="10dp" />
+                    </LinearLayout>
+
+                    <View
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#4Dffffff" />
+
+                </LinearLayout>
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv"
+                    android:layout_margin="10dp"
+                    android:background="#4D000000" />
+
+                <LinearLayout
+                    android:paddingTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/green_border_box"
+                        android:text="Submit"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

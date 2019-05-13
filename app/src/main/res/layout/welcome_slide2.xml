@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+    <ImageView
+        android:background="@drawable/logo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/imageView" />
+
+    <LinearLayout
+
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <common.CustomTextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Currently we are serving in below areas"
+            android:textColor="@color/green_color"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <common.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:text="1. Bowenpally(Hyderabad)\n2. Whitefield(Banglore)\n3. Manikonda(Hyderabad)\n\n Planning to serve more areas in future."
+
+            android:textColor="@color/green_color"
+            android:textSize="18dp" />
+
+
+
+    </LinearLayout>
+    </RelativeLayout>

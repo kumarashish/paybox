@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+   >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/grey_border"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="5dp"
+            android:src="@drawable/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <common.CustomTextView
+            android:id="@+id/city"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="#7b7b7b"
+            android:textColorHint="#7b7b7b"
+            android:hint="Select City"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/grey_border"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="5dp"
+            android:src="@drawable/locality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <common.CustomTextView
+            android:id="@+id/locality"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="Select Locality"
+            android:paddingLeft="10dp"
+            android:textColor="#7b7b7b"
+            android:textColorHint="#7b7b7b"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            >
+            <RadioGroup
+                android:id="@+id/group"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/deliverables"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/grey_border"
+                android:text="Deliverables"
+                android:textSize="16dp"
+                android:enabled="true"
+                android:textColor="#7b7b7b"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/services"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_border"
+                android:text="Services"
+                android:textColor="#7b7b7b"
+                android:layout_weight="1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/grey_border"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_margin="5dp"
+                android:src="@drawable/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/selectItem"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textSize="16dp"
+                android:textColor="#7b7b7b"
+                android:text="Select Item"
+                android:background="@null"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <Button  android:layout_margin="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/green_color"
+            android:text="Done"
+            android:id="@+id/done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_bg" />
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_margin="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:text="Clear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/blueborderbox" />
+
+
+    </LinearLayout>
+
+
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back"
+            android:layout_width="30dp"
+            android:layout_height="20dp" />
+        <common.CustomTextView
+            android:id="@+id/heading"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:text="Review and Rating"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <common.CustomTextView
+            android:id="@+id/review"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/blue"
+            android:text="Rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style= "@style/CustomRatingBarBig"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    <View
+        android:layout_margin="10dp"
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <common.CustomTextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:inputType="textEmailAddress"
+        android:id="@+id/subject"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <common.CustomTextView
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Review Details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+
+        android:inputType="textEmailAddress"
+        android:id="@+id/details"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/submit"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:text="Submit"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/green_border_box"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+</RelativeLayout>
+    </LinearLayout>
+

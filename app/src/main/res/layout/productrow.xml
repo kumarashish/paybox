@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/completeLayout"
+android:background="@color/grey"
+
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/placeholder"
+            android:id="@+id/productImage"
+            android:layout_gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <common.CustomTextView
+            android:id="@+id/productName"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="Product Name"
+            android:gravity="center_vertical"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+        <ImageButton
+            android:clickable="false"
+            android:id="@+id/minus"
+            android:src="@drawable/delete"
+            android:background="@drawable/circle"
+            android:padding="10dp"
+            android:cropToPadding="true"
+
+            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <common.CustomTextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/itemCount"
+            android:textColor="@color/blue"
+            android:textSize="18dp"
+            android:text="1"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"/>
+        <ImageButton
+            android:clickable="false"
+            android:id="@+id/add"
+            android:src="@drawable/add"
+
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/circle"
+            android:padding="10dp"
+            android:cropToPadding="true"
+
+            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <RelativeLayout
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/addCategory"
+            android:textAllCaps="false"
+            android:textSize="8dp"
+            android:textColor="@color/white"
+            android:text="Add"
+            android:background="@drawable/green_border_box"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
+        </RelativeLayout>
+</LinearLayout>
+</LinearLayout>

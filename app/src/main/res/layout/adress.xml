@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/green_color"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back"
+            android:layout_width="30dp"
+            android:layout_height="20dp" />
+        <common.CustomTextView
+            android:id="@+id/heading"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:text="Add Address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <EditText
+        android:gravity="center_vertical"
+        android:id="@+id/address1"
+        android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:hint="House No"
+        android:textColor="@color/green_color"
+        android:textColorHint="@color/green_color"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+    <EditText
+        android:id="@+id/address2"
+        android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/green_color"
+        android:textColorHint="@color/green_color"
+        android:hint="Street"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+
+    <EditText
+        android:id="@+id/city"
+      android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:hint="City"
+        android:textColor="@color/green_color"
+        android:textColorHint="@color/green_color"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+    <EditText
+        android:id="@+id/state"
+      android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/green_color"
+        android:textColorHint="@color/green_color"
+        android:hint="State"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+
+    <EditText
+        android:id="@+id/pincode"
+      android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/green_color"
+        android:textColorHint="@color/green_color"
+        android:hint="Pincode"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+    <RadioGroup
+        android:id="@+id/addressType"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/home"
+            android:textSize="14dp"
+            android:textColor="@color/green_color"
+            android:text="Home"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/officee"
+            android:layout_marginLeft="10dp"
+            android:textSize="14dp"
+            android:textColor="@color/green_color"
+            android:text="Office"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/white_rounded_bg"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/green_color" />
+</LinearLayout>

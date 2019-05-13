@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg">
+    <RelativeLayout
+        android:layout_margin="5dp"
+        android:background="@drawable/whitebox"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back"
+            android:layout_width="80dp"
+            android:layout_height="30dp" />
+
+
+        <common.CustomTextView
+            android:id="@+id/heading"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/red"
+            android:gravity="center_vertical"
+            android:text="Pay Rent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/sellerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <common.CustomTextView
+            android:id="@+id/selectProperty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+
+            android:paddingLeft="10dp"
+            android:text="Select Property"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Spinner
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+            <TextView
+                android:id="@+id/selectprop"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <common.CustomTextView
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="end"
+        android:paddingLeft="10dp"
+        android:text="@string/register"
+        android:textColor="@color/red"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:maxLength="5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Enter Amount"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey" />
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:maxLength="50"
+        android:singleLine="true"
+        android:id="@+id/comment"
+        android:paddingLeft="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        android:hint="Enter Comment"
+        android:background="@drawable/edittext_bg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <common.CustomTextView
+        android:textSize="16dp"
+        android:layout_margin="10dp"
+        android:text="Please choose your payment mode"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RadioGroup
+        android:id="@+id/paymentMethod"
+        android:weightSum="5"
+        android:layout_margin="2dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/dcard"
+            android:textSize="12dp"
+            android:text="D.Card"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/ccard"
+            android:textSize="12dp"
+            android:text="Cr.Card"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/wallet"
+            android:text="Wallet"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/nbanking"
+            android:text="N.bank"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/upi"
+
+            android:text="UPI"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/paymentView"
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <LinearLayout
+
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <common.CustomTextView
+               android:textSize="12dp"
+               android:layout_margin="5dp"
+               android:text="Amount :"
+               android:textColor="@color/black"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+           <common.CustomTextView
+               android:textSize="12dp"
+               android:layout_margin="5dp"
+               android:text=""
+               android:id="@+id/amountValue"
+               android:textColor="@color/black"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <common.CustomTextView
+                android:textSize="12dp"
+                android:layout_margin="5dp"
+                android:text="Processing Fees:"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:textSize="12dp"
+                android:layout_margin="5dp"
+                android:id="@+id/processingfess"
+                android:text=""
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <common.CustomTextView
+                android:textSize="12dp"
+                android:layout_margin="5dp"
+                android:text="Total:"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:textSize="12dp"
+                android:layout_margin="5dp"
+                android:id="@+id/total"
+                android:text=""
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <common.CustomTextView
+            android:textSize="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="*Processing fees for credit card or debit card: Rs 3+ 1.39%(amount)+gst(18% of 1.39%(amount)),for NetBanking or Wallet : 0"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <CheckBox
+        android:textSize="18dp"
+        android:layout_margin="5dp"
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Agree with" />
+        <common.CustomTextView
+            android:gravity="center_vertical"
+            android:id="@+id/terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+
+            android:text="@string/terms"
+            android:textColor="@color/red"
+            android:textSize="18dp" />
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="35dp"
+        android:textSize="14dp"
+
+        android:id="@+id/pay"
+        android:textColor="@color/white"
+        android:text="Proceed"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="end"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:background="@drawable/blueborderbox"/>
+</LinearLayout>

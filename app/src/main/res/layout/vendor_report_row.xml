@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout
+
+        android:weightSum="5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/image"
+                android:layout_marginLeft="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/milky"
+                android:layout_gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_weight="4.0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <common.CustomTextView
+                android:id="@+id/productName"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/blue"
+                android:text="Cow Milk (Full Cream)"
+                android:textSize="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/productDetails"
+                android:layout_marginTop="5dp"
+                android:text="Quantity : 500ml"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/productPrice"
+                android:layout_marginTop="5dp"
+                android:text="Price : Rs 50.0"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/productUnits"
+                android:layout_marginTop="5dp"
+                android:text="Units : Rs 50.0"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/userName"
+                android:layout_marginTop="5dp"
+                android:text="Name"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/deliveryaddress"
+                android:layout_marginTop="5dp"
+                android:text="Address"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/deliveryDuration"
+                android:layout_marginTop="5dp"
+                android:text="Address"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <common.CustomTextView
+                android:id="@+id/deliverytimming"
+                android:layout_marginTop="5dp"
+                android:text="timming"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_marginTop="5dp"
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</LinearLayout>
+

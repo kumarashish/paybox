@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+
+        android:background="@color/green_color"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:text="Select Address"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/footer" />
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/footer"
+            android:weightSum="1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/add_Address"
+                android:text="Add Address"
+                android:textSize="18dp"
+                android:textColor="@color/green_color"
+                android:layout_margin="10dp"
+                android:background="@drawable/white_rounded_bg"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

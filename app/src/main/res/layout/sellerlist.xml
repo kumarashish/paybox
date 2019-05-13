@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@drawable/whitebox"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back"
+            android:layout_width="80dp"
+            android:layout_height="30dp" />
+        <common.CustomTextView
+            android:id="@+id/heading"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/red"
+            android:gravity="center_vertical"
+            android:text="Organic Milk Vendors"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/email"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/email_btn"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ListView
+
+        android:id="@+id/listView"
+        android:divider="@null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+    <common.CustomTextView
+        android:visibility="gone"
+        android:id="@+id/noData"
+        android:textSize="25dp"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:text="No Data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

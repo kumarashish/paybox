@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MyPayBox</string>
+    <string name="SignUp"><u>SIGNUP</u></string>
+    <string name="register"><u> Register Now !</u></string>
+    <string name="terms"><u> Terms &amp; Conditions</u></string>
+    <string name="bank"><u> Bank Details : </u></string>
+    <string name="MyProfile"><u> My Profile </u></string>
+    <string name="Myorder"><u> My Order </u></string>
+    <string name="Myoffer"><u> My Offer </u></string>
+    <string name="TransactionHistory"><u> Transaction History </u></string>
+    <string name="ChangePassword"><u> Change Password </u></string>
+    <string name="Logout"><u> Logout </u></string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="currentDir">Current Dir</string>
+    <string name="folder">Folder</string>
+    <string name="parentDirectory">Parent Directory</string>
+    <string name="fileSize">File Size</string>
+    <string-array name="months">
+        <item name="Select"></item>
+        <item name="January"></item>
+        <item name="February"></item>
+        <item name="March"></item>
+        <item name="April"></item>
+        <item name="May"></item>
+        <item name="June"></item>
+        <item name="July"></item>
+        <item name="August"></item>
+        <item name="September"></item>
+        <item name="October"></item>
+        <item name="November"></item>
+        <item name="December"></item>
+    </string-array>
+</resources>

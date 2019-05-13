@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back"
+            android:layout_width="30dp"
+            android:layout_height="20dp" />
+        <common.CustomTextView
+            android:id="@+id/heading"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:text="My Deliverables"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/grey_border"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="5dp"
+            android:src="@drawable/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <common.CustomTextView
+            android:id="@+id/city"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="#7b7b7b"
+            android:textColorHint="#7b7b7b"
+            android:hint="Select City"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/grey_border"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="5dp"
+            android:src="@drawable/locality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <common.CustomTextView
+            android:id="@+id/locality"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="Select Locality"
+            android:paddingLeft="10dp"
+            android:textColor="#7b7b7b"
+            android:textColorHint="#7b7b7b"
+            android:textSize="16dp" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<ListView
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:id="@+id/listView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/done" />
+
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:textAllCaps="false"
+        android:textColor="@color/green_color"
+        android:text="Update"
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_rounded_bg" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="280dp"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:background="@drawable/whitebox"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+
+            android:id="@+id/header"
+            android:textSize="20dp"
+            android:textColor="@color/red"
+
+            android:gravity="center"
+            android:text="Order Cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <RadioButton
+            android:textSize="12dp"
+            android:id="@+id/permanetCancel"
+            android:textColor="@color/red"
+            android:text="Permanentally Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    <RadioButton
+        android:textSize="12dp"
+        android:id="@+id/customCancel"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:text="Temporary Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    </RadioGroup>
+    <Button
+        android:id="@+id/stopDate"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:background="@drawable/white_rounded_bg"
+        android:text="Select Stop Date"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp" />
+    <Button
+        android:visibility="gone"
+        android:id="@+id/restartDate"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/green_border_box"
+        android:layout_marginLeft="10dp"
+
+        android:text="Select Restart Date"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp" />
+    <LinearLayout
+        android:weightSum="2.4"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <Button
+            android:id="@+id/cancel"
+
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:textAllCaps="false"
+
+            android:textColor="@color/black"
+            android:background="@drawable/white_rounded_bg"
+            android:text="Cancel"
+            android:layout_marginLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="35dp" />
+        <Button
+            android:layout_marginRight="10dp"
+            android:id="@+id/submit"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:background="@drawable/white_rounded_bg"
+            android:layout_marginLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Submit"
+
+            android:layout_height="35dp" />
+    </LinearLayout>
+</LinearLayout>

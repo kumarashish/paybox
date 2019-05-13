@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:background="@drawable/whitebox"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <common.CustomTextView
+            android:id="@+id/header"
+
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/red"
+            android:text="Rent Receipt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/receiptView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+
+        android:background="@drawable/white_rounded_bg"
+        android:orientation="vertical">
+
+        <common.CustomTextView
+            android:id="@+id/amountValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:text="Amount of Rs 1500 paid to "
+            android:textColor="@color/black"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ownerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Ashish Kumar"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/bankAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:text="(Acc/no 12334)"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <common.CustomTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="Property : "
+
+                android:textColor="@color/black" />
+
+            <common.CustomTextView
+                android:id="@+id/propName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="The Nest "
+
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <common.CustomTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="Address : "
+
+                android:textColor="@color/black" />
+
+            <common.CustomTextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="The Nest "
+
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <common.CustomTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="Transaction Id : "
+
+                android:textColor="@color/black" />
+
+            <common.CustomTextView
+                android:id="@+id/trans_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="The Nest "
+
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <common.CustomTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="Processing Fees : "
+
+                android:textColor="@color/black" />
+
+            <common.CustomTextView
+                android:id="@+id/fees"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="0"
+
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <common.CustomTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+                android:text="Date : "
+
+                android:textColor="@color/black" />
+
+            <common.CustomTextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="The Nest "
+
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <common.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_horizontal"
+            android:text="Processing fees for credit card or debit card: Rs 3+ 1.39%(amount)+gst(18% of 1.39%(amount)). "
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+        <common.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:text="This is electronically generated receipt,doesn't require any stamp. "
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomButton"
+        android:layout_margin="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    <Button
+        android:id="@+id/save"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:text="Save"
+        android:background="@drawable/whitebox"
+        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="40dp" />
+        <View
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:text="Done"
+            android:background="@drawable/whitebox"
+            android:layout_centerHorizontal="true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</LinearLayout>

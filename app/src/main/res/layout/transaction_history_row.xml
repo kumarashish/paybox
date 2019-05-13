@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <common.CustomTextView
+        android:textColor="@color/black"
+        android:id="@+id/propertyName"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Property Name" />
+
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:id="@+id/ownerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Owner Name" />
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address" />
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:id="@+id/acc_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Number" />
+
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:id="@+id/bankName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BankName" />
+
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount" />
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date" />
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comment" />
+    <common.CustomTextView
+        android:layout_margin="5dp"
+        android:background="@color/red"
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+
+
+</LinearLayout>

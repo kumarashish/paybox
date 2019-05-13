@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:background="@drawable/whitebox"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:src="@drawable/dropdown"
+            android:id="@+id/dropdown"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <ImageView
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:src="@drawable/header"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:visibility="gone"
+            android:layout_margin="5dp"
+            android:layout_gravity="center|end"
+            android:src="@drawable/home"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/slideMenuOptions"
+        android:visibility="gone"
+        android:layout_margin="5dp"
+        android:background="@drawable/whitebox"
+        android:layout_width="match_parent"
+        android:layout_height="210dp">
+        <common.CustomTextView
+            android:textSize="16dp"
+            android:id="@+id/profile"
+            android:text="@string/MyProfile"
+            android:textColor="@color/black"
+            android:padding="7dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <common.CustomTextView
+            android:layout_marginLeft="5dp"
+            android:textSize="16dp"
+            android:id="@+id/order"
+            android:text="@string/Myorder"
+            android:textColor="@color/black"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <common.CustomTextView
+            android:layout_marginLeft="5dp"
+            android:textSize="16dp"
+            android:id="@+id/offer"
+            android:text="@string/Myoffer"
+            android:textColor="@color/black"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <common.CustomTextView
+            android:layout_marginLeft="5dp"
+            android:textSize="16dp"
+            android:text="@string/TransactionHistory"
+            android:id="@+id/history"
+            android:textColor="@color/black"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <common.CustomTextView
+            android:layout_marginLeft="5dp"
+            android:textSize="16dp"
+            android:id="@+id/changePassword"
+            android:text="@string/ChangePassword"
+            android:textColor="@color/black"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <common.CustomTextView
+            android:layout_marginLeft="5dp"
+            android:textSize="16dp"
+            android:id="@+id/logout"
+            android:text="@string/Logout"
+            android:textColor="@color/black"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@drawable/whitebox"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/maintenance_img"
+                android:scaleType="fitXY"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/maintenance"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+            <common.CustomTextView
+                android:id="@+id/maintenance_tv1"
+                android:textSize="12dp"
+                android:gravity="center"
+                android:text="view/pay"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:id="@+id/maintenance_tv2"
+                android:textSize="18dp"
+                android:layout_marginTop="-5dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="maintenance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/payrent_img"
+                android:scaleType="fitXY"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/rent"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+            <common.CustomTextView
+                android:id="@+id/payrent_tv1"
+                android:textSize="12dp"
+                android:gravity="center"
+                android:text="pay"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <common.CustomTextView
+                android:layout_marginTop="-5dp"
+                android:id="@+id/payrent_tv2"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="rent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/dailyneed_Img"
+                android:scaleType="fitXY"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/dailyneeds"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+            <TextView
+                android:id="@+id/dailyneed_tv1"
+                android:textSize="12dp"
+                android:gravity="center"
+                android:text="buy"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/dailyneed_tv2"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="daily needs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@drawable/whitebox"
+
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+        <ImageView
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+          android:src="@drawable/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</LinearLayout>

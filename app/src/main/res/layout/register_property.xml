@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg">
+    <RelativeLayout
+        android:layout_margin="5dp"
+        android:background="@drawable/whitebox"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back"
+            android:layout_width="80dp"
+            android:layout_height="30dp" />
+
+
+        <common.CustomTextView
+            android:id="@+id/heading"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/red"
+            android:gravity="center_vertical"
+            android:text="Register Your Property"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/prop_name"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Property Name"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+
+            <EditText
+
+                android:id="@+id/mobile"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Owner's Mobile Number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/propert_address"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="House number"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"/>
+            <EditText
+                android:id="@+id/propert_locality"
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Locality"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="City"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"/>
+            <EditText
+                android:id="@+id/state"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="State"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+            <EditText
+                android:maxLength="6"
+                android:id="@+id/pincode"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Pincode"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <common.CustomTextView
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+
+                android:text="@string/bank"
+                android:textColor="@color/red"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/bank_name"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Bank Name"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/bank_address"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Bank Address"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/ifsc"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="IFSC Code"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/account_num"
+                android:layout_width="match_parent"
+
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext_bg"
+                android:hint="Bank Account Number"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:textSize="18dp"
+            android:layout_margin="5dp"
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Agree with" />
+        <common.CustomTextView
+            android:gravity="center_vertical"
+            android:id="@+id/terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+
+            android:text="@string/terms"
+            android:textColor="@color/red"
+            android:textSize="18dp" />
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="15dp"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:id="@+id/done"
+        android:textColor="@color/black"
+        android:text="Done"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_rounded_bg"/>
+    </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
