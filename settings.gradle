@@ -1,1 +1,2 @@
 include ':app', ':fonePaisaSDK'
+include ':libraryMobilePaymentSDK'

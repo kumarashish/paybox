@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Xml;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -574,6 +575,136 @@ public void initializeAll()
                 e.printStackTrace();
             }
         }
+
+//    public static void TransferFund(String MerchantLogin, String MerchantPass, String MerchantDiscretionaryData, String ProductID, String ClientCode, String CustomerAccountNo, String TransactionType, String TransactionAmount, String TransactionCurrency, String TransactionServiceCharge, String TransactionID, String TransactionDateTime, String BankID)
+//    {
+//
+//        String strURL, strClientCode, strClientCodeEncoded;
+//        byte[] b;
+//        String strResponse = "";
+//
+//        // MerchantLogin = "197";
+//        // MerchantPass = "Test@123";
+//        // TransactionType = "NBFundtransfer";
+//        // ProductID = "NSE";
+//        // TransactionID = "123";
+//        // TransactionAmount = "100";
+//        // TransactionCurrency = "INR";
+//        // BankID = "2001";
+//        // //String ru = localhost:35652/Pages/FundTransferSuccess.aspx";
+//        //String ru = "http://localhost:258252/Pages/FundTransferFailed.aspx";
+//
+//        try
+//        {
+//            b = Xml.Encoding.UTF8.GetBytes(ClientCode);
+//            strClientCode = Convert.ToBase64String(b);
+//            strClientCodeEncoded = HttpUtility.UrlEncode(strClientCode);
+//            strURL = "" + ConfigurationManager.AppSettings["TransferURL"].ToString();///
+//            strURL = strURL.Replace("[MerchantLogin]", MerchantLogin + "&");
+//            strURL = strURL.Replace("[MerchantPass]", MerchantPass + "&");
+//            strURL = strURL.Replace("[TransactionType]", TransactionType + "&");
+//            strURL = strURL.Replace("[ProductID]", ProductID + "&");
+//            strURL = strURL.Replace("[TransactionAmount]", TransactionAmount + "&");
+//            strURL = strURL.Replace("[TransactionCurrency]", TransactionCurrency + "&");
+//            strURL = strURL.Replace("[TransactionServiceCharge]", TransactionServiceCharge + "&");
+//            strURL = strURL.Replace("[ClientCode]", strClientCodeEncoded + "&");
+//            strURL = strURL.Replace("[TransactionID]", TransactionID + "&");
+//            strURL = strURL.Replace("[TransactionDateTime]", TransactionDateTime + "&");
+//            strURL = strURL.Replace("[CustomerAccountNo]", CustomerAccountNo + "&");
+//            strURL = strURL.Replace("[MerchantDiscretionaryData]", MerchantDiscretionaryData + "&");
+//            strURL = strURL.Replace("[BankID]", BankID + "&");
+//            strURL = strURL.Replace("[ru]", ru + "&");// Remove on Production
+//
+//            //  String reqHashKey = requestkey;
+//            String reqHashKey = "KEY123657234";
+//            String signature = "";
+//            String strsignature = MerchantLogin + MerchantPass + TransactionType + ProductID + TransactionID + TransactionAmount + TransactionCurrency;
+//            byte[] bytes = Encoding.UTF8.GetBytes(reqHashKey);
+//            byte[] bt = new System.Security.Cryptography.HMACSHA512(bytes).ComputeHash(Encoding.UTF8.GetBytes(strsignature));
+//            // byte[] b = new HMACSHA512(bytes).ComputeHash(Encoding.UTF8.GetBytes(prodid));
+//            signature = byteToHexString(bt).ToLower();
+//            strURL = strURL.Replace("[signature]", signature);
+//
+//            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12; // comparable to modern browsers
+//
+//            HttpContext.Current.Response.Redirect(strURL, false);
+//
+//        }
+//        catch (Exception ex)
+//        {
+//            throw ex;
+//        }
+//
+//    }
+
+//    public static String byteToHexString(byte[] byData)
+//    {
+//        StringBuilder sb = new StringBuilder((byData.Length * 2));
+//        for (int i = 0; (i < byData.Length); i++)
+//        {
+//            int v = (byData[i] & 255);
+//            if ((v < 16))
+//            {
+//                sb.Append('0');
+//            }
+//
+//            sb.Append(v.ToString("X"));
+//
+//        }
+//
+//        return sb.ToString();
+//    }
+		
+		
+//	******************** for FundTransferSuccess page***************************
+
+//    protected void Page_Load(object sender, EventArgs e)
+//    {
+//        try
+//        {
+//            if (!IsPostBack)
+//            {
+//                NameValueCollection nvc = Request.Form;
+//
+//                if (Request.Params["mmp_txn"] != null)
+//                {
+//                    String postingmmp_txn = Request.Params["mmp_txn"].ToString();
+//                    String postingmer_txn = Request.Params["mer_txn"].ToString();
+//                    String postinamount = Request.Params["amt"].ToString();
+//                    String postingprod = Request.Params["prod"].ToString();
+//                    String postingdate = Request.Params["date"].ToString();
+//                    String postingbank_txn = Request.Params["bank_txn"].ToString();
+//                    String postingf_code = Request.Params["f_code"].ToString();
+//                    String postingbank_name = Request.Params["bank_name"].ToString();
+//                    String signature = Request.Params["signature"].ToString();
+//                    String postingdiscriminator = Request.Params["discriminator"].ToString();
+//
+//                    String respHashKey = "KEYRESP123657234";
+//                    String ressignature = "";
+//                    String strsignature = postingmmp_txn + postingmer_txn + postingf_code + postingprod + postingdiscriminator + postinamount + postingbank_txn;
+//                    //String strsignature = postingmmp_txn + postingmer_txn1 + postingf_code + postingprod + discriminator + postinamount + postingbank_txn;
+//                    byte[] bytes = Encoding.UTF8.GetBytes(respHashKey);
+//                    byte[] b = new System.Security.Cryptography.HMACSHA512(bytes).ComputeHash(Encoding.UTF8.GetBytes(strsignature));
+//                    ressignature = byteToHexString(b).ToLower();
+//
+//                    if (signature == ressignature)
+//                    {
+//                        lblStatus.Text = "Signature matched...";
+//
+//                    }
+//                    else
+//                    {
+//                        lblStatus.Text = "Signature Mismatched...";
+//                    }
+//                }
+//            }
+//        }
+//
+//        catch (Exception ex)
+//        {
+//
+//        }
+//    }
     }
 
 
