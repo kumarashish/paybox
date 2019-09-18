@@ -3,9 +3,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-sdk
 
-        android:targetSdkVersion="28" />
     <application
         android:allowBackup="true"
         android:label="@string/app_name"

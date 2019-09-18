@@ -26,13 +26,28 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.atom.mobilepaymentsdk.PayActivity;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.io.File;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import adapter.RentAdapter;
 import common.ApiCall;
@@ -128,6 +143,7 @@ public void initializeAll()
      selectProp.setOnClickListener(this);
     selectProperty.setOnClickListener(this);
     paymentOptions.check(netbanking.getId());
+    madePayment();
     if(Utils.isInternetAvailable(Rent.this))
     {   apiCall=getPropertyApiCall;
         new GetData().execute();
@@ -488,6 +504,38 @@ public void initializeAll()
             } else {
 
             }
+        }else if  (requestCode == 3) {
+            System.out.println("---------INSIDE-------");
+
+            if ( returned_intent != null) {
+                String message =  returned_intent.getStringExtra("status");
+                String[] resKey =  returned_intent.getStringArrayExtra("responseKeyArray");
+                String[] resValue =  returned_intent.getStringArrayExtra("responseValueArray");
+
+//				Map<String, String> map = (Map<String, String>) data.getSerializableExtra("Data");
+//
+//				String f_code = map.get("f_code");
+//				System.out.println("f_code ::"+f_code);
+//
+//				Set<String> keySet = map.keySet();
+//
+//				for(String s : keySet){
+//
+//					String value = map.get(s);
+//					System.out.println("Key :"+s +"\t value :"+value);
+//				}
+
+                if(resKey!=null && resValue!=null)
+                {
+                    for(int i=0; i<resKey.length; i++)
+                        System.out.println("  "+i+" resKey : "+resKey[i]+" resValue : "+resValue[i]);
+                }
+
+
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+                System.out.println("RECEIVED BACK--->" + message);
+            }
+
         }
     }
 
@@ -705,6 +753,184 @@ public void initializeAll()
 //
 //        }
 //    }
+
+
+    public void madePayment()
+    {
+
+
+        Intent newPayIntent = new Intent(Rent.this,	PayActivity.class);
+
+        newPayIntent.putExtra("Merchant URL", "https://paynetzuat.atomtech.in/paynetz/epi/fts");
+        newPayIntent.putExtra("VendorID", "197");
+        newPayIntent.putExtra("merchantId", "197");
+        newPayIntent.putExtra("txnscamt", "0"); //Fixed. Must be �0�
+        newPayIntent.putExtra("loginid", "197");
+        newPayIntent.putExtra("password", "Test@123");
+        newPayIntent.putExtra("prodid", "NSE");
+        newPayIntent.putExtra("Port No", "443");
+
+//					newPayIntent.putExtra("prodid", "Multi");
+        newPayIntent.putExtra("txncurr", "INR"); //Fixed. Must be �INR�
+        newPayIntent.putExtra("clientcode", encodeBase64("007"));
+        newPayIntent.putExtra("custacc", "100000036600");
+        newPayIntent.putExtra("channelid", "INT");
+        newPayIntent.putExtra("amt", "10.00");//Should be 3 decimal number i.e 1.000
+        newPayIntent.putExtra("txnid", "2365F315");
+        newPayIntent.putExtra("date", "30/12/2015 18:31:00");//Should be in same format
+        newPayIntent.putExtra("cardtype","DC");// CC or DC ONLY (value should be same as commented)
+        newPayIntent.putExtra("cardAssociate", "VISA");// VISA or MASTER or MAESTRO ONLY (value should be same as commented)
+        newPayIntent.putExtra("surcharge", "NO");
+        newPayIntent.putExtra("signature_request", "KEY123657234");
+        newPayIntent.putExtra("signature_response", "KEYRESP123657234");
+        newPayIntent.putExtra("ReqHashKey", "KEY123657234");
+        newPayIntent.putExtra("RespHashKey", "KEYRESP123657234");
+
+        //use below Production url only with Production "Library-MobilePaymentSDK", Located inside PROD folder
+        //newPayIntent.putExtra("ru","https://payment.atomtech.in/mobilesdk/param"); //ru FOR Production
+
+        //use below UAT url only with UAT "Library-MobilePaymentSDK", Located inside UAT folderhttps://paynetzuat.atomtech.in/paynetz/epi/fts
+        newPayIntent.putExtra("ru", "https://paynetzuat.atomtech.in/mobilesdk/param"); // FOR UAT (Testing)
+
+        //Optinal Parameters
+        newPayIntent.putExtra("customerName", "LMN PQR");//Only for Name
+        newPayIntent.putExtra("customerEmailID", "pqr.lmn@atomtech.in");//Only for Email ID
+        newPayIntent.putExtra("customerMobileNo", "9978868666");//Only for Mobile Number
+        newPayIntent.putExtra("billingAddress", "Pune");//Only for Address
+        newPayIntent.putExtra("optionalUdf9", "OPTIONAL DATA 2");// Can pass any data
+        newPayIntent.putExtra("mprod", createXmlForProducts("10.00"));  // Pass data in XML format, only for Multi product
+
+        startActivityForResult(newPayIntent, 3);
+    }
+    private String createXmlForProducts(String amt) {
+        // TODO Auto-generated method stub
+
+        DocumentBuilderFactory factory =
+                DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = null;
+        try {
+            builder = factory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+
+        // Here instead of parsing an existing document we want to
+        // create a new one.
+        Document testDoc = builder.newDocument();
+
+        // This creates a new tag named 'testElem' inside
+        // the document and sets its data to 'TestContent'
+        ArrayList<String> lst = new ArrayList<String>();
+        lst.add("1,One,250,1,2");
+        lst.add("2,Two,250,1,2,3,4,5");
+
+        //		lst.add("3,Three,500");
+
+        //		String[] input = {"1,One,250,1,2,3,4,5", "2,Two,250,1,2,3,4,5", "3,Three,250,1,2,3,4,5"};
+        //		String[] line = new String[8];
+        int doubleAmt = 0;
+        Element products = testDoc.createElement("products");
+        testDoc.appendChild(products);
+
+        for(String s: lst)
+        {
+            String line[] = s.split(",");
+
+            //		for(int i = 0; i < lst.size(); i++){
+            //
+            //			line = lst.get(i).split(",");
+            Element product = testDoc.createElement("product");
+
+            products.appendChild(product);
+
+            Element id = testDoc.createElement("id");
+            id.appendChild(testDoc.createTextNode(line[0]));
+            product.appendChild(id);
+
+            Element name = testDoc.createElement("name");
+            name.appendChild(testDoc.createTextNode(line[1]));
+            product.appendChild(name);
+
+            Element amount = testDoc.createElement("amount");
+            amount.appendChild(testDoc.createTextNode(line[2]));
+            product.appendChild(amount);
+
+            doubleAmt = doubleAmt + Integer.parseInt(line[2]);
+            //			amt = amt + line[2];
+            amt = Integer.toString(doubleAmt);
+
+            if(line.length > 3){
+                Element param1 = testDoc.createElement("param1");
+                param1.appendChild(testDoc.createTextNode(line[3]));
+                product.appendChild(param1);
+            }
+
+            if(line.length > 4){
+                Element param2 = testDoc.createElement("param2");
+                param2.appendChild(testDoc.createTextNode(line[4]));
+                product.appendChild(param2);
+            }
+
+            if(line.length > 5){
+                Element param3 = testDoc.createElement("param3");
+                param3.appendChild(testDoc.createTextNode(line[5]));
+                product.appendChild(param3);
+            }
+
+            if(line.length > 6){
+                Element param4 = testDoc.createElement("param4");
+                param4.appendChild(testDoc.createTextNode(line[6]));
+                product.appendChild(param4);
+            }
+
+            if(line.length > 7){
+                Element param5 = testDoc.createElement("param5");
+                param5.appendChild(testDoc.createTextNode(line[7]));
+                product.appendChild(param5);
+            }
+        }
+
+        System.out.println("Total Amount :::" +amt);
+
+
+        try{
+            DOMSource source = new DOMSource(testDoc);
+            StringWriter writer = new StringWriter();
+            StreamResult result = new StreamResult(writer);
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer = tf.newTransformer();
+            transformer.transform(source, result);
+            writer.flush();
+            //		        	System.out.println( writer.toString());
+            String s = writer.toString().split("\\?")[2].substring(1,writer.toString().split("\\?")[2].length());
+            //		        	wslog.writelog(Priority.INFO,"passDetailsXmlRequest", s);
+
+            System.out.println("Product XML : " +s);
+            return s;
+        }
+        catch(TransformerException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+
+
+    }
+    public String encodeBase64(String encode)
+    {
+        System.out.println("[encodeBase64] Base64 encode : "+encode);
+        String decode=null;
+
+        try {
+
+
+//			decode= new sun.misc.BASE64Encoder().encode(encode.getBytes());
+            decode=  Base64.encode(encode.getBytes());
+        } catch (Exception e) {
+            System.out.println("Unable to decode : "+ e);
+        }
+        return  decode;
+    }
+
     }
 
 
