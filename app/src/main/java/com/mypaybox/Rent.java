@@ -144,6 +144,7 @@ public void initializeAll()
     selectProperty.setOnClickListener(this);
     paymentOptions.check(netbanking.getId());
     madePayment();
+    //makePayment("10.00");
     if(Utils.isInternetAvailable(Rent.this))
     {   apiCall=getPropertyApiCall;
         new GetData().execute();
@@ -757,10 +758,7 @@ public void initializeAll()
 
     public void madePayment()
     {
-
-
         Intent newPayIntent = new Intent(Rent.this,	PayActivity.class);
-
         newPayIntent.putExtra("Merchant URL", "https://paynetzuat.atomtech.in/paynetz/epi/fts");
         newPayIntent.putExtra("VendorID", "197");
         newPayIntent.putExtra("merchantId", "197");
@@ -769,17 +767,17 @@ public void initializeAll()
         newPayIntent.putExtra("password", "Test@123");
         newPayIntent.putExtra("prodid", "NSE");
         newPayIntent.putExtra("Port No", "443");
-
+        newPayIntent.putExtra("discriminator", "All");
 //					newPayIntent.putExtra("prodid", "Multi");
         newPayIntent.putExtra("txncurr", "INR"); //Fixed. Must be �INR�
-        newPayIntent.putExtra("clientcode", encodeBase64("007"));
+        newPayIntent.putExtra("clientcode", "001");
         newPayIntent.putExtra("custacc", "100000036600");
         newPayIntent.putExtra("channelid", "INT");
-        newPayIntent.putExtra("amt", "10.00");//Should be 3 decimal number i.e 1.000
+        newPayIntent.putExtra("amt", "10.000");//Should be 3 decimal number i.e 1.000
         newPayIntent.putExtra("txnid", "2365F315");
         newPayIntent.putExtra("date", "30/12/2015 18:31:00");//Should be in same format
         newPayIntent.putExtra("cardtype","DC");// CC or DC ONLY (value should be same as commented)
-        newPayIntent.putExtra("cardAssociate", "VISA");// VISA or MASTER or MAESTRO ONLY (value should be same as commented)
+        newPayIntent.putExtra("cardAssociate", "MASTER");// VISA or MASTER or MAESTRO ONLY (value should be same as commented)
         newPayIntent.putExtra("surcharge", "NO");
         newPayIntent.putExtra("signature_request", "KEY123657234");
         newPayIntent.putExtra("signature_response", "KEYRESP123657234");
@@ -798,8 +796,44 @@ public void initializeAll()
         newPayIntent.putExtra("customerMobileNo", "9978868666");//Only for Mobile Number
         newPayIntent.putExtra("billingAddress", "Pune");//Only for Address
         newPayIntent.putExtra("optionalUdf9", "OPTIONAL DATA 2");// Can pass any data
-        newPayIntent.putExtra("mprod", createXmlForProducts("10.00"));  // Pass data in XML format, only for Multi product
+        newPayIntent.putExtra("mprod", createXmlForProducts("10.00"));
+        newPayIntent.putExtra("discriminator", "ALL");// Pass data in XML format, only for Multi product
 
+        startActivityForResult(newPayIntent, 3);
+    }
+
+    public void makePayment(String amount)
+    {
+
+        Intent newPayIntent = new Intent(this,         PayActivity.class);
+
+
+
+        newPayIntent.putExtra("merchantId", "197");
+
+        newPayIntent.putExtra("txnscamt", "0"); //Fixed. Must be 0
+
+        newPayIntent.putExtra("loginid", "197");
+
+        newPayIntent.putExtra("password", "Test@123");
+
+        newPayIntent.putExtra("prodid", "NSE");
+
+        newPayIntent.putExtra("txncurr", "INR"); //Fixed. Must be ?INR?
+
+        newPayIntent.putExtra("clientcode", "001");
+
+        newPayIntent.putExtra("custacc", "100000036600");
+
+        newPayIntent.putExtra("amt", amount);//Should be 3 decimal number i.e 51.000
+
+        newPayIntent.putExtra("txnid", "013");
+
+        newPayIntent.putExtra("date", "25/08/2015 18:31:00");//Should be in same format
+        newPayIntent.putExtra("discriminator", "ALL"); // NB or IMPS or All ONLY (value should be same as commented)
+        newPayIntent.putExtra("signature_request", "KEY123657234");
+        newPayIntent.putExtra("signature_response", "KEYRESP123657234");
+        newPayIntent.putExtra("mprod", createXmlForProducts("10.00"));
         startActivityForResult(newPayIntent, 3);
     }
     private String createXmlForProducts(String amt) {
