@@ -101,6 +101,8 @@
             android:name="com.atom.mobilepaymentsdk.PayActivity"
             android:label="MobilePaymentSDK"
             android:screenOrientation="portrait"/>
+        <uses-library android:name="org.apache.http.legacy"
+            android:required="false"/>
 
     </application>
 

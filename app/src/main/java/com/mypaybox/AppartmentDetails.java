@@ -78,6 +78,8 @@ AppController controller;
     String paymentMode=Common.net_Banking;
     double transactionFeesValue=0;
     double amountVal=0;
+    String transactionType=Common.net_Banking;
+    double totalValue=0.00;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -203,7 +205,7 @@ AppController controller;
                 hashkey=s;
                 pd.cancel();
                 double amount=Math.round(amountVal+transactionFeesValue);
-                madePayment(invoiceId,Double.toString(amount), hashkey);
+                //madePayment(invoiceId,Double.toString(amount), hashkey);
 
             }else {
                 jsonParsing(s);
@@ -307,8 +309,8 @@ AppController controller;
             public void onClick(View view) {
 
                 dialog.cancel();
-                apiCall=getPaymentHash;
-                new GetData().execute();
+                Common.madePayment(AppartmentDetails.this,Double.toString(totalValue),transactionType,paymentMode);
+
             }
         });
         paymentOptions.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -317,28 +319,36 @@ AppController controller;
 
                 {
                     paymentDetails.setVisibility(View.VISIBLE);
-                    switch (i) {
-                        case R.id.ccard:
-                            paymentMode = Common.creditCard;
-                            break;
-                        case R.id.dcard:
-                            paymentMode = Common.debitCard;
-                            break;
-                        case R.id.wallet:
-                            paymentMode = Common.wallet;
-                            break;
-                        case R.id.nbanking:
-                            paymentMode = Common.net_Banking;
-                            break;
-                        case R.id.upi:
-                            paymentMode = Common.upi;
-                            break;
+
+                        switch (i)
+                        {
+                            case R.id.ccard:
+                                transactionType="";
+                                paymentMode=Common.creditCard;
+                                break;
+                            case R.id.dcard:
+                                transactionType="";
+                                paymentMode=Common.debitCard;
+                                break;
+                            case R.id.wallet:
+                                paymentMode=Common.wallet;
+                                break;
+                            case R.id.nbanking:
+                                transactionType=Common.net_Banking;
+                                paymentMode="";
+                                break;
+                            case R.id.upi:
+                                transactionType=Common.upi;
+                                paymentMode="";
+                                break;
+                        }
+
                     }
 
                     updatePaymentValue(paymentMode,amountValue,transactionFees,total);
 
                 }
-            }
+
         });
         // set the custom dialog components - text, image and button
         dialog.show();
@@ -365,7 +375,7 @@ AppController controller;
         }
         amountValue.setText("Rs " + amountVal);
         transactionFees.setText("Rs." + transactionFeesValue);
-        double totalValue = Math.round(amountVal + transactionFeesValue);
+        totalValue = Math.round(amountVal + transactionFeesValue);
         total.setText("Rs. " + totalValue);
     }
     public void showMaintenanceReceipt() {
@@ -443,7 +453,7 @@ AppController controller;
                 System.out.println("sent json" + returned_intent.getStringExtra("data_sent"));
                 String returnJson= returned_intent.getStringExtra("data_recieved");
                 System.out.println("returned json" +returnJson);
-                transactionId=paymentId(returnJson);
+                //transactionId=paymentId(returnJson);
                 Toast toast = Toast.makeText(getApplicationContext(), returned_intent.getStringExtra("resp_msg").toString(), Toast.LENGTH_SHORT);
                 toast.show();
                 if(!returned_intent.getStringExtra("resp_msg").contains("cancelled")) {
@@ -457,7 +467,32 @@ AppController controller;
             } else {
 
             }
-        }
+        }else if  (requestCode == 3) {
+           System.out.println("---------INSIDE-------");
+           if (returned_intent != null) {
+               String message = returned_intent.getStringExtra("status");
+               String[] resKey = returned_intent.getStringArrayExtra("responseKeyArray");
+               String[] resValue = returned_intent.getStringArrayExtra("responseValueArray");
+               if (resKey != null && resValue != null) {
+                   for (int i = 0; i < resKey.length; i++) {
+                       if (resKey[i].equalsIgnoreCase("bank_txn")) {
+                           transactionId = resValue[i];
+                           break;
+                       }
+                       System.out.println("  " + i + " resKey : " + resKey[i] + " resValue : " + resValue[i]);
+                   }
+                   if (message.contains("Successful")) {
+
+                       showMaintenanceReceipt();
+                   }
+
+                   Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+                   System.out.println("RECEIVED BACK--->" + message);
+               }
+
+
+           }
+       }
     }
     public void madePayment(String invoiceId,String amount,String signKey){    Intent intent = new Intent(AppartmentDetails.this, fonePaisaPG.class);
         JSONObject json_to_be_sent = new JSONObject();

@@ -49,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <RadioButton
+            android:visibility="gone"
             android:id="@+id/wallet"
             android:text="Wallet"
             android:textSize="12dp"

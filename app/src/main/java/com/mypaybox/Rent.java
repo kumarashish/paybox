@@ -61,6 +61,7 @@ import interfaces.Callback;
 import login.Test;
 import model.BankModel;
 import model.PropertyModel;
+import okhttp3.internal.Util;
 
 import static java.lang.System.currentTimeMillis;
 
@@ -97,7 +98,9 @@ TextView selectProp;
     String hashkey="";
     String invoiceId="";
     double amountVal=0;
-  String paymentMode=Common.net_Banking;
+    double totalValue=0.0;
+  String paymentMode="";
+  String transactionType=Common.net_Banking;
   double transactionFeesValue=0;
 
 
@@ -143,8 +146,6 @@ public void initializeAll()
      selectProp.setOnClickListener(this);
     selectProperty.setOnClickListener(this);
     paymentOptions.check(netbanking.getId());
-    madePayment();
-    //makePayment("10.00");
     if(Utils.isInternetAvailable(Rent.this))
     {   apiCall=getPropertyApiCall;
         new GetData().execute();
@@ -186,19 +187,23 @@ public void initializeAll()
                 switch (i)
                 {
                     case R.id.ccard:
+                        transactionType="";
                         paymentMode=Common.creditCard;
                         break;
                     case R.id.dcard:
+                        transactionType="";
                         paymentMode=Common.debitCard;
                         break;
                     case R.id.wallet:
                         paymentMode=Common.wallet;
                         break;
                     case R.id.nbanking:
-                        paymentMode=Common.net_Banking;
+                        transactionType=Common.net_Banking;
+                        paymentMode="";
                         break;
                     case R.id.upi:
-                        paymentMode=Common.upi;
+                        transactionType=Common.upi;
+                        paymentMode="";
                         break;
                 }
 
@@ -232,7 +237,7 @@ public void initializeAll()
         }
         amountValue.setText("Rs " + amountVal);
         transactionFees.setText("Rs." + transactionFeesValue);
-        double totalValue = Math.round(amountVal + transactionFeesValue);
+       totalValue = Math.round(amountVal + transactionFeesValue);
         total.setText("Rs. " + totalValue);
     }
 
@@ -260,8 +265,8 @@ public void initializeAll()
                 if((bankDetails!=null)&(selectedProperty!=null)) {
                     if(isFieldValidated()) {
                         if (Utils.isInternetAvailable(Rent.this)) {
-                            apiCall =getPaymentHash;
-                            new GetData().execute();
+
+                            Common.madePayment(Rent.this,Double.toString(totalValue),transactionType,paymentMode);
                         } else {
                             Toast.makeText(Rent.this, "Internet Unavailable!", Toast.LENGTH_SHORT).show();
                         }
@@ -400,17 +405,7 @@ public void initializeAll()
             }else if(apiCall==postRent)
              {
              response= ApiCall.post(Common.getSaveRentUrl,getSaveRentJSON());
-             }else if(apiCall==getPaymentHash){
-            JSONObject jsonObject=new JSONObject();
-            try {
-                jsonObject.put("test", "test");
-            } catch (Exception ex) {
-                ex.fillInStackTrace();
-            }
-            invoiceId=""+ System.currentTimeMillis();
-
-            response= ApiCall.post(Common.getPaymentHash(Double.toString(amountVal+transactionFeesValue),invoiceId),jsonObject);
-        }
+             }
 
             Log.d("Api respone:",response);
             return response;
@@ -433,12 +428,6 @@ public void initializeAll()
               }else{
                   Toast.makeText(Rent.this,s, Toast.LENGTH_SHORT).show();
               }
-            }else if(apiCall==getPaymentHash)
-            {
-                hashkey=s;
-                pd.cancel();
-                madePayment(invoiceId,Double.toString(amountVal+transactionFeesValue), hashkey);
-
             }
             if (pd != null) {
                 pd.cancel();
@@ -507,38 +496,31 @@ public void initializeAll()
             }
         }else if  (requestCode == 3) {
             System.out.println("---------INSIDE-------");
+            if (returned_intent != null) {
+                String message = returned_intent.getStringExtra("status");
+                String[] resKey = returned_intent.getStringArrayExtra("responseKeyArray");
+                String[] resValue = returned_intent.getStringArrayExtra("responseValueArray");
+                if (resKey != null && resValue != null) {
+                    for (int i = 0; i < resKey.length; i++) {
+                        if (resKey[i].equalsIgnoreCase("bank_txn")) {
+                            transactionId = resValue[i];
+                            break;
+                        }
+                        System.out.println("  " + i + " resKey : " + resKey[i] + " resValue : " + resValue[i]);
+                    }
+                    if (message.contains("Successful")) {
 
-            if ( returned_intent != null) {
-                String message =  returned_intent.getStringExtra("status");
-                String[] resKey =  returned_intent.getStringArrayExtra("responseKeyArray");
-                String[] resValue =  returned_intent.getStringArrayExtra("responseValueArray");
+                        apiCall = postRent;
+                        new GetData().execute();
+                    }
 
-//				Map<String, String> map = (Map<String, String>) data.getSerializableExtra("Data");
-//
-//				String f_code = map.get("f_code");
-//				System.out.println("f_code ::"+f_code);
-//
-//				Set<String> keySet = map.keySet();
-//
-//				for(String s : keySet){
-//
-//					String value = map.get(s);
-//					System.out.println("Key :"+s +"\t value :"+value);
-//				}
-
-                if(resKey!=null && resValue!=null)
-                {
-                    for(int i=0; i<resKey.length; i++)
-                        System.out.println("  "+i+" resKey : "+resKey[i]+" resValue : "+resValue[i]);
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+                    System.out.println("RECEIVED BACK--->" + message);
                 }
 
 
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-                System.out.println("RECEIVED BACK--->" + message);
             }
-
-        }
-    }
+        }}
 
     public String paymentId(String json) {
         try {
@@ -625,86 +607,6 @@ public void initializeAll()
             }
         }
 
-//    public static void TransferFund(String MerchantLogin, String MerchantPass, String MerchantDiscretionaryData, String ProductID, String ClientCode, String CustomerAccountNo, String TransactionType, String TransactionAmount, String TransactionCurrency, String TransactionServiceCharge, String TransactionID, String TransactionDateTime, String BankID)
-//    {
-//
-//        String strURL, strClientCode, strClientCodeEncoded;
-//        byte[] b;
-//        String strResponse = "";
-//
-//        // MerchantLogin = "197";
-//        // MerchantPass = "Test@123";
-//        // TransactionType = "NBFundtransfer";
-//        // ProductID = "NSE";
-//        // TransactionID = "123";
-//        // TransactionAmount = "100";
-//        // TransactionCurrency = "INR";
-//        // BankID = "2001";
-//        // //String ru = localhost:35652/Pages/FundTransferSuccess.aspx";
-//        //String ru = "http://localhost:258252/Pages/FundTransferFailed.aspx";
-//
-//        try
-//        {
-//            b = Xml.Encoding.UTF8.GetBytes(ClientCode);
-//            strClientCode = Convert.ToBase64String(b);
-//            strClientCodeEncoded = HttpUtility.UrlEncode(strClientCode);
-//            strURL = "" + ConfigurationManager.AppSettings["TransferURL"].ToString();///
-//            strURL = strURL.Replace("[MerchantLogin]", MerchantLogin + "&");
-//            strURL = strURL.Replace("[MerchantPass]", MerchantPass + "&");
-//            strURL = strURL.Replace("[TransactionType]", TransactionType + "&");
-//            strURL = strURL.Replace("[ProductID]", ProductID + "&");
-//            strURL = strURL.Replace("[TransactionAmount]", TransactionAmount + "&");
-//            strURL = strURL.Replace("[TransactionCurrency]", TransactionCurrency + "&");
-//            strURL = strURL.Replace("[TransactionServiceCharge]", TransactionServiceCharge + "&");
-//            strURL = strURL.Replace("[ClientCode]", strClientCodeEncoded + "&");
-//            strURL = strURL.Replace("[TransactionID]", TransactionID + "&");
-//            strURL = strURL.Replace("[TransactionDateTime]", TransactionDateTime + "&");
-//            strURL = strURL.Replace("[CustomerAccountNo]", CustomerAccountNo + "&");
-//            strURL = strURL.Replace("[MerchantDiscretionaryData]", MerchantDiscretionaryData + "&");
-//            strURL = strURL.Replace("[BankID]", BankID + "&");
-//            strURL = strURL.Replace("[ru]", ru + "&");// Remove on Production
-//
-//            //  String reqHashKey = requestkey;
-//            String reqHashKey = "KEY123657234";
-//            String signature = "";
-//            String strsignature = MerchantLogin + MerchantPass + TransactionType + ProductID + TransactionID + TransactionAmount + TransactionCurrency;
-//            byte[] bytes = Encoding.UTF8.GetBytes(reqHashKey);
-//            byte[] bt = new System.Security.Cryptography.HMACSHA512(bytes).ComputeHash(Encoding.UTF8.GetBytes(strsignature));
-//            // byte[] b = new HMACSHA512(bytes).ComputeHash(Encoding.UTF8.GetBytes(prodid));
-//            signature = byteToHexString(bt).ToLower();
-//            strURL = strURL.Replace("[signature]", signature);
-//
-//            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12; // comparable to modern browsers
-//
-//            HttpContext.Current.Response.Redirect(strURL, false);
-//
-//        }
-//        catch (Exception ex)
-//        {
-//            throw ex;
-//        }
-//
-//    }
-
-//    public static String byteToHexString(byte[] byData)
-//    {
-//        StringBuilder sb = new StringBuilder((byData.Length * 2));
-//        for (int i = 0; (i < byData.Length); i++)
-//        {
-//            int v = (byData[i] & 255);
-//            if ((v < 16))
-//            {
-//                sb.Append('0');
-//            }
-//
-//            sb.Append(v.ToString("X"));
-//
-//        }
-//
-//        return sb.ToString();
-//    }
-		
-		
 //	******************** for FundTransferSuccess page***************************
 
 //    protected void Page_Load(object sender, EventArgs e)
@@ -756,86 +658,8 @@ public void initializeAll()
 //    }
 
 
-    public void madePayment()
-    {
-        Intent newPayIntent = new Intent(Rent.this,	PayActivity.class);
-        newPayIntent.putExtra("Merchant URL", "https://paynetzuat.atomtech.in/paynetz/epi/fts");
-        newPayIntent.putExtra("VendorID", "197");
-        newPayIntent.putExtra("merchantId", "197");
-        newPayIntent.putExtra("txnscamt", "0"); //Fixed. Must be �0�
-        newPayIntent.putExtra("loginid", "197");
-        newPayIntent.putExtra("password", "Test@123");
-        newPayIntent.putExtra("prodid", "NSE");
-        newPayIntent.putExtra("Port No", "443");
-        newPayIntent.putExtra("discriminator", "All");
-//					newPayIntent.putExtra("prodid", "Multi");
-        newPayIntent.putExtra("txncurr", "INR"); //Fixed. Must be �INR�
-        newPayIntent.putExtra("clientcode", "001");
-        newPayIntent.putExtra("custacc", "100000036600");
-        newPayIntent.putExtra("channelid", "INT");
-        newPayIntent.putExtra("amt", "10.000");//Should be 3 decimal number i.e 1.000
-        newPayIntent.putExtra("txnid", "2365F315");
-        newPayIntent.putExtra("date", "30/12/2015 18:31:00");//Should be in same format
-        newPayIntent.putExtra("cardtype","DC");// CC or DC ONLY (value should be same as commented)
-        newPayIntent.putExtra("cardAssociate", "MASTER");// VISA or MASTER or MAESTRO ONLY (value should be same as commented)
-        newPayIntent.putExtra("surcharge", "NO");
-        newPayIntent.putExtra("signature_request", "KEY123657234");
-        newPayIntent.putExtra("signature_response", "KEYRESP123657234");
-        newPayIntent.putExtra("ReqHashKey", "KEY123657234");
-        newPayIntent.putExtra("RespHashKey", "KEYRESP123657234");
-
-        //use below Production url only with Production "Library-MobilePaymentSDK", Located inside PROD folder
-        //newPayIntent.putExtra("ru","https://payment.atomtech.in/mobilesdk/param"); //ru FOR Production
-
-        //use below UAT url only with UAT "Library-MobilePaymentSDK", Located inside UAT folderhttps://paynetzuat.atomtech.in/paynetz/epi/fts
-        newPayIntent.putExtra("ru", "https://paynetzuat.atomtech.in/mobilesdk/param"); // FOR UAT (Testing)
-
-        //Optinal Parameters
-        newPayIntent.putExtra("customerName", "LMN PQR");//Only for Name
-        newPayIntent.putExtra("customerEmailID", "pqr.lmn@atomtech.in");//Only for Email ID
-        newPayIntent.putExtra("customerMobileNo", "9978868666");//Only for Mobile Number
-        newPayIntent.putExtra("billingAddress", "Pune");//Only for Address
-        newPayIntent.putExtra("optionalUdf9", "OPTIONAL DATA 2");// Can pass any data
-        newPayIntent.putExtra("mprod", createXmlForProducts("10.00"));
-        newPayIntent.putExtra("discriminator", "ALL");// Pass data in XML format, only for Multi product
-
-        startActivityForResult(newPayIntent, 3);
-    }
-
-    public void makePayment(String amount)
-    {
-
-        Intent newPayIntent = new Intent(this,         PayActivity.class);
 
 
-
-        newPayIntent.putExtra("merchantId", "197");
-
-        newPayIntent.putExtra("txnscamt", "0"); //Fixed. Must be 0
-
-        newPayIntent.putExtra("loginid", "197");
-
-        newPayIntent.putExtra("password", "Test@123");
-
-        newPayIntent.putExtra("prodid", "NSE");
-
-        newPayIntent.putExtra("txncurr", "INR"); //Fixed. Must be ?INR?
-
-        newPayIntent.putExtra("clientcode", "001");
-
-        newPayIntent.putExtra("custacc", "100000036600");
-
-        newPayIntent.putExtra("amt", amount);//Should be 3 decimal number i.e 51.000
-
-        newPayIntent.putExtra("txnid", "013");
-
-        newPayIntent.putExtra("date", "25/08/2015 18:31:00");//Should be in same format
-        newPayIntent.putExtra("discriminator", "ALL"); // NB or IMPS or All ONLY (value should be same as commented)
-        newPayIntent.putExtra("signature_request", "KEY123657234");
-        newPayIntent.putExtra("signature_response", "KEYRESP123657234");
-        newPayIntent.putExtra("mprod", createXmlForProducts("10.00"));
-        startActivityForResult(newPayIntent, 3);
-    }
     private String createXmlForProducts(String amt) {
         // TODO Auto-generated method stub
 

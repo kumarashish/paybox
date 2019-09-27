@@ -1,12 +1,19 @@
 package common;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
+
+import com.atom.mobilepaymentsdk.PayActivity;
+import com.mypaybox.Rent;
 
 /**
  * Created by Honey Singh on 4/5/2017.
  */
 
 public class Common {
+
+
     public static String baseUrl="http://api.mypaybox.in/";
     public static String localityId = "";
     public static String locality = "";
@@ -71,6 +78,7 @@ public class Common {
     final  public static String wallet="OW";
     final  public static String net_Banking="NB";
     final public static String upi="UP";
+    final public static String all="All";
    public static String getUpdateImageUrl(String userId, String type) {
        return Common.updateUserProfileImage + "" + userId + "&type=" + type;
    }
@@ -119,5 +127,40 @@ public class Common {
     {
       return getPaymentHashUrl+"invoiceAmt="+amount+"&invoiceId="+invoiceId+"";
     }
-
+    public static void madePayment(Activity act,String amount,String disclaimer,String cardType)
+    {
+        Intent newPayIntent = new Intent(act,	PayActivity.class);
+        newPayIntent.putExtra("merchantId", "197");
+        newPayIntent.putExtra("txnscamt", "0"); //Fixed. Must be 0
+        newPayIntent.putExtra("loginid", "197");
+        newPayIntent.putExtra("password", "Test@123");
+        newPayIntent.putExtra("prodid", "NSE");
+        newPayIntent.putExtra("txncurr", "INR"); //Fixed. Must be ?INR?
+        newPayIntent.putExtra("clientcode", "001");
+        newPayIntent.putExtra("custacc", "100000036600");
+        newPayIntent.putExtra("amt", amount);//Should be 3 decimal number i.e 51.000
+        newPayIntent.putExtra("txnid", "013");
+        newPayIntent.putExtra("date", "25/08/2015 18:31:00");//Should be in same format
+      if(disclaimer.length()>0) {
+          newPayIntent.putExtra("discriminator", disclaimer);
+      }// NB or IMPS or All ONLY (value should be same as commented)
+        if(cardType.length()>0) {
+            newPayIntent.putExtra("cardtype", "DC");
+        }// CC or DC ONLY (value should be same as commented)
+       // newPayIntent.putExtra("cardAssociate", "VISA");// VISA or MASTER or MAESTRO ONLY (value should be same as commented)
+        newPayIntent.putExtra("surcharge", "NO");
+        newPayIntent.putExtra("signature_request", "KEY123657234");
+        newPayIntent.putExtra("signature_response", "KEYRESP123657234");
+        //use below Production url only with Production "Library-MobilePaymentSDK", Located inside PROD folder
+        //newPayIntent.putExtra("ru","https://payment.atomtech.in/mobilesdk/param"); //ru FOR Production
+        //use below UAT url only with UAT "Library-MobilePaymentSDK", Located inside UAT folder
+        newPayIntent.putExtra("ru", "https://paynetzuat.atomtech.in/mobilesdk/param"); // FOR UAT (Testing)
+        //Optinal Parameters
+        newPayIntent.putExtra("customerName", "JKL PQR"); //Only for Name
+        newPayIntent.putExtra("customerEmailID", "jkl.pqr@atomtech.in");//Only for Email ID
+        newPayIntent.putExtra("customerMobileNo", "9876543210");//Only for Mobile Number
+        newPayIntent.putExtra("billingAddress", "Mumbai");//Only for Address
+        newPayIntent.putExtra("optionalUdf9", "OPTIONAL DATA 1");// Can pass any data
+        act.startActivityForResult(newPayIntent, 3);
+    }
 }
